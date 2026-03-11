@@ -112,15 +112,15 @@ The architecture ditributes HTTP traffic using Application Load Balancer across 
 - 
 ## Tech Stack
 
--AWS (EC2, , VPC, ALB, Auto Scaling, CloudWatch)
--Linux
--Apache
+- AWS (EC2, , VPC, ALB, Auto Scaling, CloudWatch)
+- Linux
+- Apache
 
 ## Testing Section
 
--To ensure the scalability functionality, we apply stress using:
+- To ensure the scalability functionality, we apply stress using:
 stress --cpu 2 --timeout 300
--As a response The Auto Scaling Group generates a new instance.
+- As a response The Auto Scaling Group generates a new instance.
 ![Auto scaling group testing](./screenshots/ASG-testing.png)
 ![Instance intialized testing](./screenshots/Instance-initializing-testing.png)
 ![Instance running testing](./screenshots/Instance-running-testing.png)
