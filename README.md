@@ -123,5 +123,7 @@ To ensure the scalability functionality, we apply stress using:
 As a response The Auto Scaling Group generates a new instance.
 ![Auto scaling group testing](./screenshots/ASG-testing.png)
 ![Instance intialized testing](./screenshots/Instance-initializing-testing.png)
-![Instance running testing](./screenshots/Instance-running-tetsing.png)
+![Instance running testing](./screenshots/Instance-running-testing.png)
+
+
 
