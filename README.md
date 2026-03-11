@@ -5,7 +5,7 @@ an Application Load Balancer, Auto Scaling Group, and Apache web server,
 monitored with Amazon CloudWatch.
 
 ## Architecture Diagram
-
+![ARcutectural digram](./screenshots/architectural diagram.png)
 
 ## AWS Services Used
 
