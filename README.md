@@ -5,7 +5,8 @@ an Application Load Balancer, Auto Scaling Group, and Apache web server,
 monitored with Amazon CloudWatch.
 
 ## Architecture Diagram
-![Architectural digram](./screenshots/architectural-diagram.png)
+![Architectural diagram](./screenshots/architectural-diagram.png)
+The architecture ditributes HTTP traffic using Application Load Balancer across instances while Auto scaling groups scale capacity based on demand holding to the scalability core concept.
 
 ## AWS Services Used
 
@@ -13,10 +14,11 @@ monitored with Amazon CloudWatch.
 |---------|---------|
 | VPC | Isolated network environment |
 | EC2 | Web server hosting Apache |
-| Application Load Balancer | Distributes traffic across instances |
+| Application Load Balancer | Distributes traffic across instances in diffrent availability zones|
 | Auto Scaling Group | Automatically scales instances based on demand |
+| Security Group| Instance level firewall that controls the traffic allowed to reach the resources|
 | CloudWatch | Monitors CPU and performance metrics |
-| Internet Gateway | Allows public internet access to the VPC |
+| Internet Gateway | Allows VPC access to public internet |
 
 ## Features
 - Auto scaling based on demand (minimum of 1 instance, maximum is 2, desired 1)
@@ -58,7 +60,7 @@ monitored with Amazon CloudWatch.
 3. Create and attach Internet Gateway
 4. Configure route tables with `0.0.0.0/0 → IGW`
 5. Create ALB and EC2 security groups
-6. add inbound rules for security groups
+6. Add inbound rules for security groups
 7. Create launch template with Apache user data script
 8. Create Application Load Balancer (internet-facing)
 9. Create target group with HTTP port 80 health check
@@ -107,3 +109,19 @@ monitored with Amazon CloudWatch.
 - Move EC2 instances to private subnets with a NAT Gateway
 - Add RDS database for dynamic content
 - Implement CloudWatch alarms with SNS notifications
+- 
+## Tech Stack
+
+AWS (EC2, , VPC, ALB, Auto Scaling, CloudWatch)
+Linux
+Apache
+
+## Testing Section
+
+To ensure the scalability functionality, we apply stress using:
+ stress --cpu 2 --timeout 300
+As a response The Auto Scaling Group generates a new instance.
+![Auto scaling group testing](./screenshots/ASG-testing.png)
+![Instance intialized during testing](./screenshots/Instance-initializing-testing.png)
+![Instance running during testing](./screenshots/Instance-running-tetsing.png)
+
