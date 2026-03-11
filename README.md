@@ -6,7 +6,7 @@ monitored with Amazon CloudWatch.
 
 ## Architecture Diagram
 ![Architectural diagram](./screenshots/architectural-diagram.png)
-The architecture ditributes HTTP traffic using Application Load Balancer across instances while Auto scaling groups scale capacity based on demand holding to the scalability core concept.
+The architecture distributes HTTP traffic using Application Load Balancer across instances while Auto scaling groups scale capacity based on demand holding to the scalability core concept.
 
 ## AWS Services Used
 
@@ -14,7 +14,7 @@ The architecture ditributes HTTP traffic using Application Load Balancer across 
 |---------|---------|
 | VPC | Isolated network environment |
 | EC2 | Web server hosting Apache |
-| Application Load Balancer | Distributes traffic across instances in diffrent availability zones|
+| Application Load Balancer | Distributes traffic across instances in different availability zones|
 | Auto Scaling Group | Automatically scales instances based on demand |
 | Security Group| Instance level firewall that controls the traffic allowed to reach the resources|
 | CloudWatch | Monitors CPU and performance metrics |
@@ -36,7 +36,7 @@ The architecture ditributes HTTP traffic using Application Load Balancer across 
 ### Security Groups
 - ALB security group: allows inbound HTTP port 80 from `0.0.0.0/0`
 - EC2 security group: allows inbound HTTP port 80 from ALB security group only
-- EC2 security group: allows inbound SSH port 22 from private IP adress.
+- EC2 security group: allows inbound SSH port 22 from private IP address.
 -  
 ### Launch Template
 - Amazon Linux 2 AMI
@@ -112,14 +112,16 @@ The architecture ditributes HTTP traffic using Application Load Balancer across 
 - 
 ## Tech Stack
 
-- AWS (EC2, , VPC, ALB, Auto Scaling, CloudWatch)
+- AWS (EC2, VPC, Application Load Balancer, Auto Scaling, CloudWatch)
 - Linux
 - Apache
 
 ## Testing Section
 
 - To ensure the scalability functionality, we apply stress using:
+```
 stress --cpu 2 --timeout 300
+```
 - As a response The Auto Scaling Group generates a new instance.
 ![Auto scaling group testing](./screenshots/ASG-testing.png)
 ![Instance intialized testing](./screenshots/Instance-initializing-testing.png)
